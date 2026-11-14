@@ -3,10 +3,12 @@ import Icon from '@/components/shared/Icon.astro';
 import {pathTo} from '@/lib/paths';
 ---
 <section class="section specialties" aria-labelledby="specialty-title"><div class="container">
-  <div class="section-heading centered"><p class="eyebrow">CARE THAT WORKS TOGETHER</p><h2 id="specialty-title">When you need the <span>next level of care.</span></h2><p>OCA brings pain management, orthopedic, and spine expertise into one coordinated conversation, with treatment options tailored to your needs.</p></div>
+  <div class="section-heading centered"><h2 id="specialty-title">When You Need the Next Level of Care</h2><p>Our team of physicians, chiropractors, physical therapists, and massage therapists use coordinated techniques to solve the biomechanical cause of your pain at the source in ways others can't...all under one roof.</p></div>
+</div>
+<div class="care-wrap">
   <div class="care-grid">
-    <a class="care-card care-interventional" href={pathTo('/services/pain-management/')}><div class="care-card-head"><h3>Interventional<br/>Care</h3><span class="care-card-arrow" aria-hidden="true">↗</span></div><div class="care-icon"><Icon name="spine" size={72} strokeWidth={1.3}/></div><p>Targeted procedures designed to address specific sources of pain when conservative approaches alone are not enough.</p><span class="care-link">Explore pain care <span aria-hidden="true">→</span></span></a>
-    <a class="care-card care-orthopedic" href={pathTo('/services/orthopedic-care/')}><div class="care-card-head"><h3>Orthopedic<br/>Care</h3><span class="care-card-arrow" aria-hidden="true">↗</span></div><div class="care-icon"><Icon name="bone" size={72} strokeWidth={1.3}/></div><p>Comprehensive assessment and treatment for joint and musculoskeletal conditions, including surgical care when indicated.</p><span class="care-link">Explore orthopedic care <span aria-hidden="true">→</span></span></a>
+    <a class="care-card care-interventional" href={pathTo('/services/pain-management/')}><div class="care-card-head"><h3>Interventional Care</h3></div><div class="care-icon"><Icon name="spine" size={152} strokeWidth={0.72}/></div><p>Minimally invasive medical procedures designed to directly address the underlying cause of pain rather than just managing symptoms.&nbsp; These options are often used when conservative care alone is not sufficient.</p></a>
+    <a class="care-card care-orthopedic" href={pathTo('/services/orthopedic-care/')}><div class="care-card-head"><h3>Orthopedic Care</h3></div><div class="care-icon"><Icon name="bone" size={162} strokeWidth={0.58}/></div><p>Treatment of structural musculoskeletal conditions, often when conservative and interventional options are no longer effective. This level of care may involve surgical procedures relieve nerve pressure and treat pain sources.</p></a>
   </div>
-  <a class="text-link centered-link" href={pathTo('/services/spine-care/')}>Learn about our spine care approach <span aria-hidden="true">→</span></a>
-</div></section>
+</div>
+</section>

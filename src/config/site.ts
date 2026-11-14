@@ -20,11 +20,13 @@ export const site = {
   bookingFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe2-vvRkaoH8y3efTuoBHY4y78UWMuIHcuTR4jI6ytbjjPlug/viewform',
   insuranceFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdGPdnt-YEYiXsHb_febuzrEhg8d6OvZP2fDjrMvir1eXFFfQ/viewform',
 } as const;
+// Header nav per the OCA Home site.pdf design (ABOUT CONDITIONS SERVICES
+// PARTNERS BLOG). The Providers page stays reachable from the footer.
 export const nav = [
   { text: 'About', href: '/about/' },
   { text: 'Conditions', href: '/conditions/' },
   { text: 'Services', href: '/services/' },
-  { text: 'Providers', href: '/providers/' },
   { text: 'Partners', href: '/partners/' },
   { text: 'Blog', href: '/blog/' },
 ] as const;
+export const footerNav = [...nav, { text: 'Providers', href: '/providers/' }] as const;

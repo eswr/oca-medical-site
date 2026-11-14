@@ -1,0 +1,28 @@
+---
+---
+<section class="section testimonials-section" aria-labelledby="testimonials-title">
+  <div class="container">
+    <div class="section-heading centered"><h2 id="testimonials-title">How We've Helped Others the OCA Way</h2></div>
+  </div>
+  <div class="testimonials-outer">
+    <div class="testimonials-wrap">
+      <button class="testimonial-arrow" type="button" data-testimonials-prev aria-label="Previous testimonial">&lt;</button>
+      <div class="testimonials-row" data-testimonials-row>
+        <blockquote class="testimonial-card"><span class="testimonial-avatar" aria-hidden="true"></span><p>&ldquo;We&rsquo;ll run a full diagnostic test to see what&rsquo;s the problem and what&rsquo;s the best solution.&rdquo;</p></blockquote>
+        <blockquote class="testimonial-card"><span class="testimonial-avatar" aria-hidden="true"></span><p>&ldquo;We&rsquo;ll run a full diagnostic test to see what&rsquo;s the problem and what&rsquo;s the best solution.&rdquo;</p></blockquote>
+        <blockquote class="testimonial-card"><span class="testimonial-avatar" aria-hidden="true"></span><p>&ldquo;All Things Physical Medicine All Under One Roof!&rdquo;</p></blockquote>
+      </div>
+      <button class="testimonial-arrow" type="button" data-testimonials-next aria-label="Next testimonial">&gt;</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const row = document.querySelector('[data-testimonials-row]');
+  for (const dir of ['prev', 'next'] as const) {
+    const btn = document.querySelector(`[data-testimonials-${dir}]`);
+    btn?.addEventListener('click', () => {
+      row?.scrollBy({ left: dir === 'prev' ? -row.clientWidth : row.clientWidth, behavior: 'smooth' });
+    });
+  }
+</script>

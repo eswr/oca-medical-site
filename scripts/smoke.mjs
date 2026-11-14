@@ -5,6 +5,6 @@ const routes = ['index.html','about/index.html','book/index.html','insurance/ind
 let failed=0;
 for (const file of routes){const full=path.join(root,file);if(!fs.existsSync(full)){console.error(`MISSING: ${full}`);failed++;continue;}
  const body=fs.readFileSync(full,'utf8');if(!body.includes('<html')||!body.includes('OCA')){console.error(`UNEXPECTED CONTENT: ${file}`);failed++;}}
-for (const file of ['images/logo.png','images/hero-pain.webp','images/clinic.webp','.nojekyll']){if(!fs.existsSync(path.join(root,file))){console.error(`MISSING ASSET: ${file}`);failed++;}}
+for (const file of ['images/logo.png','images/hero-pain.webp','images/clinic.webp','images/insurance-logos.webp','images/locations-map.webp','images/therapy.webp','.nojekyll']){if(!fs.existsSync(path.join(root,file))){console.error(`MISSING ASSET: ${file}`);failed++;}}
 if(failed){console.error(`${failed} smoke checks failed`);process.exit(1)}
-console.log(`Passed ${routes.length} page checks and 4 asset checks.`);
+console.log(`Passed ${routes.length} page checks and 7 asset checks.`);
