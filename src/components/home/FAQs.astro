@@ -1,0 +1,4 @@
+---
+import {faqs} from '@/data/faqs';
+---
+<section class="section faq-section"><div class="container faq-grid"><div><p class="eyebrow">QUESTIONS & ANSWERS</p><h2>Good questions.<br/><em>Clear next steps.</em></h2><p>Here are answers to some common questions about OCA Medical Group.</p></div><div class="faq-list">{faqs.map((faq,i)=><details class="faq-item" open={i===0}><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></div></section>

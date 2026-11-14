@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import {site} from '@/config/site';
+import {pathTo} from '@/lib/paths';
+---
+<BaseLayout title="Locations" description="OCA Medical Group's published Newport Beach office address and driving directions.">
+ <PageHero eyebrow="LOCATIONS" title="Conveniently located in Orange County." description="Find the Newport Beach office listed on the existing OCA Medical Group website."/>
+ <section class="section"><div class="container split-content"><div class="location-detail"><p class="eyebrow">MAIN LISTED OFFICE</p><h2>Newport Beach, California</h2><address>{site.street}<br/>{site.city}, {site.state} {site.zip}</address><p>Near John Wayne Airport, with access to the 55, 5, 73 and 405 freeways.</p><div class="stacked-actions"><a class="button-primary" href={site.mapsUrl} target="_blank" rel="noopener noreferrer">Get directions ↗</a><a class="text-link" href={site.phoneHref}>Call {site.phone} →</a></div><p class="soft-note">The PDF also illustrates additional Los Angeles-area sites. Those addresses and current availability were not independently verified, so they are not published as active locations here.</p></div><img class="rounded-photo" src={pathTo('/images/clinic.webp')} alt="Modern clinic exterior" width="1000" height="750"/></div></section>
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import {site} from '@/config/site';
+import {pathTo} from '@/lib/paths';
+import Icon from '@/components/shared/Icon.astro';
+---
+<BaseLayout title="Contact Us" description="OCA Medical Group telephone, email, and office address in Newport Beach, California.">
+ <PageHero eyebrow="CONTACT OCA" title="We are here to help you get started." description="Contact the OCA Medical Group office with general questions about appointments, services, or insurance."/>
+ <section class="section"><div class="container contact-options"><article class="contact-option"><Icon name="phone" size={44}/><h2>Call our office</h2><p>The direct option for appointment and insurance questions.</p><a class="text-link" href={site.phoneHref}>{site.phone} →</a></article><article class="contact-option"><Icon name="document" size={44}/><h2>General inquiries</h2><p>Please do not include private medical or insurance information in regular email.</p><a class="text-link" href={site.emailHref}>{site.email} →</a></article><article class="contact-option"><Icon name="location" size={44}/><h2>Visit us</h2><p>{site.street}<br/>{site.city}, {site.state} {site.zip}</p><a class="text-link" href={site.mapsUrl} target="_blank" rel="noopener noreferrer">Directions ↗</a></article></div></section>
+ <section class="section surface"><div class="container simple-center"><h2>Would you like to request an appointment?</h2><p>Use the existing consultation request process or call the office directly.</p><a class="button-primary" href={pathTo('/book/')}>Request an appointment ↗</a></div></section>
+</BaseLayout>

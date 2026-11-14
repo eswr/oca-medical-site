@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import CTABanner from '@/components/shared/CTABanner.astro';
+import {insights, type Insight} from '@/data/insights';
+import {pathTo} from '@/lib/paths';
+export function getStaticPaths(){return insights.map(post=>({params:{slug:post.slug},props:{post}}));}
+interface Props {post: Insight;}
+const {post}=Astro.props;
+---
+<BaseLayout title={post.title} description={post.description}>
+ <PageHero eyebrow="PATIENT EDUCATION" title={post.title} description={post.description}/>
+ <section class="section"><div class="container article-body"><p class="eyebrow">EDUCATIONAL OVERVIEW</p>{post.paragraphs.map(p=><p>{p}</p>)}<h2>What to ask during your visit</h2><ul class="check-list">{post.bullets.map(p=><li>{p}</li>)}</ul><p class="soft-note">This general information is not a diagnosis, medical recommendation, or substitute for care from a qualified clinician. The articles are editorial drafts and require clinical approval before publication.</p><a href={pathTo('/blog/')} class="text-link">← Back to all articles</a></div></section><CTABanner />
+</BaseLayout>

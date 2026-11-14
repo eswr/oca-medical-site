@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import CTABanner from '@/components/shared/CTABanner.astro';
+import {providers} from '@/data/providers';
+import {pathTo} from '@/lib/paths';
+---
+<BaseLayout title="Meet the Providers" description="Learn about physicians featured on OCA Medical Group's existing provider pages.">
+ <PageHero eyebrow="MEET THE PROVIDERS" title="Experience across the care pathway." description="Learn about the physicians currently listed in OCA's existing specialty and provider information."/>
+ <section class="section"><div class="container provider-grid">{providers.map(provider=><a class="provider-card" href={pathTo(`/providers/${provider.slug}/`)}><div class="provider-avatar" aria-hidden="true">{provider.initials}</div><div class="provider-card-copy"><p class="eyebrow">{provider.title}</p><h2>{provider.name}</h2><p>{provider.bio}</p><span class="text-link">View profile <span aria-hidden="true">→</span></span></div></a>)}</div><p class="container provider-note">Provider participation and availability should be confirmed directly with the office.</p></section><CTABanner />
+</BaseLayout>

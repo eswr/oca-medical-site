@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import CTABanner from '@/components/shared/CTABanner.astro';
+import {conditions, type Condition} from '@/data/conditions';
+import {services} from '@/data/services';
+import {pathTo} from '@/lib/paths';
+export function getStaticPaths(){return conditions.map(condition=>({params:{slug:condition.slug},props:{condition}}));}
+interface Props {condition: Condition;}
+const {condition}=Astro.props;
+const relevant=services.filter(service=>condition.relevant.includes(service.slug));
+---
+<BaseLayout title={condition.name} description={condition.summary}>
+ <PageHero eyebrow="CONDITIONS / EVALUATION" title={condition.name} description={condition.summary}/>
+ <section class="section"><div class="container content-sidebar"><article class="prose-content"><p class="eyebrow">ABOUT THIS CONCERN</p><h2>Understanding your options</h2><p>{condition.learn}</p><p>Only a licensed clinician who evaluates you can recommend testing or treatment for your individual situation. Seek urgent care for severe or rapidly worsening symptoms.</p><h3>Related care areas</h3><div class="related-links">{relevant.map(service=><a href={pathTo(`/services/${service.slug}/`)}>{service.label} <span aria-hidden="true">→</span></a>)}</div></article><aside class="sidebar-card"><h3>Get guidance from OCA.</h3><p>Discuss a personalized evaluation with the OCA Medical Group office.</p><a class="button-primary" href={pathTo('/book/')}>Request an appointment ↗</a></aside></div></section><CTABanner />
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import {site} from '@/config/site';
+import Icon from '@/components/shared/Icon.astro';
+import {pathTo} from '@/lib/paths';
+---
+<BaseLayout title="Insurance Verification" description="How to request an insurance benefits review from OCA Medical Group.">
+ <PageHero eyebrow="INSURANCE & BENEFITS" title="Understand your coverage before you commit." description="Every policy is different. Get in touch with the OCA team to request an insurance benefits review."/>
+ <section class="section"><div class="container split-content"><div class="light-panel"><div class="panel-icon"><Icon name="insurance" size={48}/></div><h2>Request a benefits review</h2><p>OCA's existing website provides an insurance verification form. This redesign links to that existing form rather than collecting insurance identifiers on GitHub Pages.</p><a class="button-primary" href={site.insuranceFormUrl} target="_blank" rel="noopener noreferrer">Open existing verification form ↗</a><p class="small-print">This opens a third-party form. Confirm with the office that it is the current approved submission channel before sharing personal or insurance information.</p></div><div class="content-column"><p class="eyebrow">HOW IT WORKS</p><h2>Make informed decisions about care.</h2><div class="steps"><div><span>01</span><div><h3>Share your plan details through OCA's approved channel</h3><p>Use the existing form or call the office. Do not email member IDs or other sensitive information.</p></div></div><div><span>02</span><div><h3>Ask about the verification process</h3><p>Insurance benefits and eligibility depend on your plan and are subject to verification.</p></div></div><div><span>03</span><div><h3>Discuss your next step</h3><p>Talk with OCA about scheduling and any estimated financial responsibility.</p></div></div></div><a class="text-link" href={site.phoneHref}>Call {site.phone} <span aria-hidden="true">→</span></a></div></div></section>
+</BaseLayout>

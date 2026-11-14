@@ -1,0 +1,5 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import {pathTo} from '@/lib/paths';
+---
+<BaseLayout title="Page Not Found" noindex={true}><section class="section not-found"><div class="container simple-center"><span class="eyebrow">404 / PAGE NOT FOUND</span><h1>We couldn't find that page.</h1><p>Try the homepage or explore the services we provide.</p><a class="button-primary" href={pathTo('/')}>Return home →</a></div></section></BaseLayout>

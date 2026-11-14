@@ -1,0 +1,6 @@
+---
+import {pathTo} from '@/lib/paths';
+interface Props {title?:string; text?:string;}
+const {title='Need help finding your next step?',text='Talk with the OCA team about your care options and appointment availability.'}=Astro.props;
+---
+<section class="cta-banner"><div class="container cta-banner-inner"><div><p class="eyebrow light">TAKE THE NEXT STEP</p><h2>{title}</h2><p>{text}</p></div><div class="cta-banner-actions"><a href={pathTo('/book/')} class="button-primary">Request an appointment <span aria-hidden="true">↗</span></a><a href={pathTo('/insurance/')} class="button-outline-white">Verify insurance</a></div></div></section>

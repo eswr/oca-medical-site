@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import CTABanner from '@/components/shared/CTABanner.astro';
+import {site} from '@/config/site';
+---
+<BaseLayout title="Partners & Referrals" description="Contact OCA Medical Group about referrals and coordinated care.">
+ <PageHero eyebrow="PARTNERS & REFERRALS" title="Coordination makes a difference." description="Connect with OCA Medical Group about potential referrals, care coordination, and specialist consultations."/>
+ <section class="section"><div class="container split-content"><div><p class="eyebrow">WORKING TOGETHER</p><h2>Built around communication.</h2><p>The existing OCA website describes sharing rehabilitation protocols with other providers and working across specialties. Contact the office to discuss current referral processes or how your patients may access specialist evaluation.</p><div class="pill-row"><span>Pain management</span><span>Orthopedic care</span><span>Spine care</span></div></div><div class="light-panel"><h3>Referral questions?</h3><p>Please contact the office directly. Do not send patient records by regular email unless a secure approved process has been arranged.</p><a class="button-primary" href={site.phoneHref}>Call {site.phone} ↗</a></div></div></section><CTABanner />
+</BaseLayout>

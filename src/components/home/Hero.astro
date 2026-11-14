@@ -1,0 +1,14 @@
+---
+import {pathTo} from '@/lib/paths';
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-photo" style={`background-image: linear-gradient(105deg, rgba(14,59,124,.90), rgba(20,152,208,.81)), url('${pathTo('/images/hero-pain.webp')}')`}></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container hero-content">
+    <span class="hero-pill"><span class="hero-pill-dot"></span> Pain management · Orthopedics · Spine care</span>
+    <h1 id="hero-title">Care that goes <span>deeper than the pain.</span></h1>
+    <p>Personalized treatment options for pain, movement, and recovery—built around what matters to you.</p>
+    <div class="hero-actions"><a href={pathTo('/book/')} class="button-primary button-xl">Request a consultation <span aria-hidden="true">↗</span></a><a href={pathTo('/services/')} class="hero-secondary">Explore our services <span aria-hidden="true">→</span></a></div>
+  </div>
+  <div class="hero-wave" aria-hidden="true"></div>
+</section>

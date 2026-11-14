@@ -1,0 +1,21 @@
+---
+import MobileNav from '@/components/layout/MobileNav';
+import {nav, site} from '@/config/site';
+import {pathTo} from '@/lib/paths';
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={pathTo('/')} aria-label="OCA Medical Group home">
+      <img src={pathTo('/images/logo.png')} alt="OCA Medical Group" width="135" height="78" loading="eager" />
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      {nav.map(item=><a class:list={['nav-link',{'active': Astro.url.pathname.endsWith(item.href) && (item.href as string) !== '/'}]} href={pathTo(item.href)}>{item.text}</a>)}
+    </nav>
+    <div class="header-actions">
+      <a class="header-small header-contact" href={pathTo('/contact/')}>Contact</a>
+      <a class="header-small header-verify" href={pathTo('/insurance/')}>Verify</a>
+      <a class="header-small header-book" href={pathTo('/book/')}>Book</a>
+    </div>
+    <div class="mobile-nav"><MobileNav client:load /></div>
+  </div>
+</header>

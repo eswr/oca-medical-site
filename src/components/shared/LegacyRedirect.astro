@@ -1,0 +1,7 @@
+---
+import {pathTo} from '@/lib/paths';
+interface Props {target:string; label:string}
+const {target,label}=Astro.props;
+const url=pathTo(target);
+---
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta http-equiv="refresh" content={`0;url=${url}`} /><meta name="robots" content="noindex,follow" /><link rel="canonical" href={Astro.site ? new URL(url,Astro.site).toString() : url}/><title>{label} — OCA Medical Group</title></head><body><p>This page has moved. <a href={url}>Continue to {label}</a>.</p></body></html>

@@ -1,0 +1,15 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import CTABanner from '@/components/shared/CTABanner.astro';
+import {services, type Service} from '@/data/services';
+import {pathTo} from '@/lib/paths';
+export function getStaticPaths(){return services.map(service=>({params:{slug:service.slug},props:{service}}));}
+interface Props {service: Service;}
+const {service}=Astro.props;
+---
+<BaseLayout title={service.label} description={service.short}>
+ <PageHero eyebrow="SERVICES / OCA MEDICAL GROUP" title={service.label} description={service.short}/>
+ <section class="section"><div class="container content-sidebar"><article class="prose-content"><p class="eyebrow">ABOUT THIS SERVICE</p><h2>Care with a plan.</h2><p>{service.intro}</p><h3>What your visit may involve</h3><ul class="check-list">{service.whatToExpect.map(item=><li>{item}</li>)}</ul><h3>Options you can discuss</h3><div class="chip-list">{service.options.map(item=><span>{item}</span>)}</div><p class="soft-note">Treatment suitability, risks, and expected outcomes depend on individual evaluation. Not every procedure is offered to or appropriate for every patient.</p></article><aside class="sidebar-card"><p class="eyebrow">TALK WITH OCA</p><h3>Have questions about {service.label.toLowerCase()}?</h3><p>Contact the office to discuss evaluation and scheduling.</p><a class="button-primary" href={pathTo('/book/')}>Request an appointment ↗</a><a class="text-link" href={pathTo('/insurance/')}>Insurance information →</a></aside></div></section>
+ <CTABanner />
+</BaseLayout>

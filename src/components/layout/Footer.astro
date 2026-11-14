@@ -1,0 +1,16 @@
+---
+import {site,nav} from '@/config/site';
+import {pathTo} from '@/lib/paths';
+---
+<footer class="footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href={pathTo('/')} aria-label="OCA home"><img src={pathTo('/images/logo-white.png')} alt="OCA Medical Group" width="160" height="92" loading="lazy" /></a>
+      <p>Personalized options for pain management, orthopedic care, and spine concerns.</p>
+    </div>
+    <div class="footer-column"><h3>Explore</h3>{nav.map(item=><a href={pathTo(item.href)}>{item.text}</a>)}</div>
+    <div class="footer-column"><h3>Patient resources</h3><a href={pathTo('/book/')}>Request appointment</a><a href={pathTo('/insurance/')}>Insurance verification</a><a href={pathTo('/locations/')}>Location</a><a href={pathTo('/privacy/')}>Privacy information</a></div>
+    <div class="footer-column footer-contact"><h3>Get in touch</h3><a href={site.phoneHref}>{site.phone}</a><a href={site.emailHref}>{site.email}</a><address>{site.street}<br/>{site.city}, {site.state} {site.zip}</address><a href={site.mapsUrl} target="_blank" rel="noopener noreferrer">Get directions ↗</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© {new Date().getFullYear()} OCA Medical Group. All rights reserved.</span><span>Information on this website is educational and does not replace individualized medical advice.</span></div>
+</footer>

@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import {insights} from '@/data/insights';
+import {pathTo} from '@/lib/paths';
+---
+<BaseLayout title="Insights" description="Educational overviews about pain care, orthopedic evaluation and spine pathways.">
+ <PageHero eyebrow="OCA INSIGHTS" title="Information for the next step." description="Patient-friendly educational guides about specialist care and planning for an appointment."/>
+ <section class="section"><div class="container insight-grid">{insights.map((post,index)=><a class="insight-card" href={pathTo(`/blog/${post.slug}/`)}><div class={`insight-art insight-art-${index}`}><span>{String(index+1).padStart(2,'0')}</span><div class="insight-circles"></div></div><div class="insight-copy"><p class="eyebrow">{post.category}</p><h2>{post.title}</h2><p>{post.description}</p><span class="text-link">Read article →</span></div></a>)}</div></section>
+</BaseLayout>

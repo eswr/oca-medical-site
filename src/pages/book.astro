@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import {site} from '@/config/site';
+import Icon from '@/components/shared/Icon.astro';
+import {pathTo} from '@/lib/paths';
+---
+<BaseLayout title="Request an Appointment" description="Contact OCA Medical Group to discuss a consultation and appointment availability.">
+ <PageHero eyebrow="LET'S GET STARTED" title="Your next step begins here." description="Tell us how we can help. Contact the OCA office to discuss an evaluation or request an appointment using its existing intake process."/>
+ <section class="section"><div class="container contact-options"><article class="contact-option featured"><Icon name="calendar" size={48}/><h2>Request an appointment</h2><p>Open OCA's existing consultation request form. The form is hosted separately from this static website.</p><a href={site.bookingFormUrl} class="button-navy" target="_blank" rel="noopener noreferrer">Open appointment request ↗</a><p class="small-print">Before submitting health information, confirm this form is OCA's currently approved intake method.</p></article><article class="contact-option"><Icon name="phone" size={48}/><h2>Prefer to call?</h2><p>Speak with the office about services, availability, or the next steps for requesting an appointment.</p><a class="text-link" href={site.phoneHref}>{site.phone} <span aria-hidden="true">→</span></a><a class="text-link" href={pathTo('/locations/')}>See our office location →</a></article></div></section>
+ <section class="section surface"><div class="container simple-center"><h2>Helpful to know before you call</h2><p>Have your basic contact details and insurance information available. The office can explain what is needed through its approved channels.</p><div class="pill-row"><span>Initial questions</span><span>Scheduling details</span><span>Insurance questions</span></div><p class="soft-note">This site is not an emergency service. If you have a medical emergency, call 911.</p></div></section>
+</BaseLayout>

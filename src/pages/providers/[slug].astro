@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import CTABanner from '@/components/shared/CTABanner.astro';
+import {providers, type Provider} from '@/data/providers';
+import {pathTo} from '@/lib/paths';
+export function getStaticPaths(){return providers.map(provider=>({params:{slug:provider.slug},props:{provider}}));}
+interface Props {provider: Provider;}
+const {provider}=Astro.props;
+---
+<BaseLayout title={provider.name} description={`${provider.name}: ${provider.title} at OCA Medical Group.`}>
+ <PageHero eyebrow="MEET THE PROVIDERS" title={provider.name} description={provider.title}/>
+ <section class="section"><div class="container content-sidebar"><div class="prose-content"><div class="profile-monogram" aria-hidden="true">{provider.initials}</div><p class="eyebrow">CLINICAL FOCUS</p><h2>About {provider.name}</h2><p>{provider.bio}</p><h3>Focus areas</h3><ul class="check-list">{provider.focus.map(item=><li>{item}</li>)}</ul><p class="soft-note">This summary is adapted from publicly listed OCA content. Confirm credentials and current affiliation before publication.</p></div><aside class="sidebar-card"><h3>Connect with the care team</h3><p>Ask about appointment availability or the appropriate specialty for your concerns.</p><a class="button-primary" href={pathTo('/book/')}>Request an appointment ↗</a></aside></div></section><CTABanner />
+</BaseLayout>

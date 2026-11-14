@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import CTABanner from '@/components/shared/CTABanner.astro';
+import Icon from '@/components/shared/Icon.astro';
+import {services} from '@/data/services';
+import {pathTo} from '@/lib/paths';
+---
+<BaseLayout title="Services" description="Explore OCA Medical Group pain management, orthopedic care and spine services.">
+ <PageHero eyebrow="OUR SERVICES" title="The right expertise for your next step." description="Explore the clinic's core specialties and learn how each might fit into a personalized care plan."/>
+ <section class="section"><div class="container service-list">{services.map((service,index)=><article class="service-row"><div class="service-icon-tile"><Icon name={service.icon} size={72}/></div><div><span class="eyebrow">SPECIALTY 0{index+1}</span><h2>{service.label}</h2><p>{service.short}</p><a class="text-link" href={pathTo(`/services/${service.slug}/`)}>Explore this service <span aria-hidden="true">→</span></a></div></article>)}</div></section>
+ <CTABanner />
+</BaseLayout>

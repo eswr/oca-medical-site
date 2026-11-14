@@ -1,0 +1,12 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/shared/PageHero.astro';
+import CTABanner from '@/components/shared/CTABanner.astro';
+import {pathTo} from '@/lib/paths';
+---
+<BaseLayout title="About Us" description="Learn about OCA Medical Group's coordinated approach to pain, orthopedic, and spine care in Newport Beach.">
+  <PageHero eyebrow="ABOUT OCA" title="Specialized expertise. A more connected approach." description="At OCA Medical Group, care begins with listening, evaluation, and a discussion of the available treatment options."/>
+  <section class="section"><div class="container split-content"><img class="rounded-photo" src={pathTo('/images/clinic.webp')} alt="Medical clinic exterior" width="1000" height="750"/><div><p class="eyebrow">OUR STORY</p><h2>Care with your whole picture in mind.</h2><p>OCA Medical Group is located in Newport Beach in Orange County, close to John Wayne Airport. The current practice website describes a multidisciplinary philosophy that brings together conservative treatment, pain management, and orthopedic and spine expertise.</p><p>Patients are assessed and directed toward an appropriate specialist. The goal is to discuss options clearly and consider the least invasive reasonable pathway first when appropriate.</p><a class="text-link" href={pathTo('/providers/')}>Meet the physicians <span aria-hidden="true">→</span></a></div></div></section>
+  <section class="section surface"><div class="container"><div class="section-heading"><p class="eyebrow">WHAT GUIDES THE WORK</p><h2>A practical, patient-centered philosophy.</h2></div><div class="feature-grid"><article><span class="feature-no">01</span><h3>Clinical expertise</h3><p>Specialist input for pain management, orthopedic surgery and spine-related concerns.</p></article><article><span class="feature-no">02</span><h3>Individual planning</h3><p>Treatment decisions based on your health history, symptoms and clinical examination.</p></article><article><span class="feature-no">03</span><h3>Coordinated pathways</h3><p>Options that may include conservative care, rehabilitation, procedures or surgery when indicated.</p></article></div></div></section>
+  <CTABanner />
+</BaseLayout>
