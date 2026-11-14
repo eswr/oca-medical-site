@@ -114,3 +114,30 @@ Owner provided target-vs-current screenshots of the first viewport; per the stan
 **Verification:** rendered DOM measured against every PDF target — section y-positions match within ~10px page-wide (about/band/booking exact to ±1px); overflow audit across 13 representative routes × 1440/768/375/360/320 → 0 visible overflow (remaining `scrollWidth` inflation is the testimonial row's intentional swipe content, contained by `overflow-x:auto` + `body overflow-x:clip`); `astro check` 0 errors; production build (37 pages) + smoke test pass.
 
 **Known acceptable deviations:** Figtree digits/letters run slightly wider than the PDF's Canva Sans (stat numeral line ~30px wider at equal cap height); booking confidentiality note wraps to 3 lines vs the PDF's 2 (same 13.5px size, longer verbatim text); Canva's freehand ±20px element placements reproduced as clean symmetrical grids (stat centers, option-card content columns); footer remains the site design (PDF shows only a `[FOOTER]` placeholder).
+
+---
+
+## 9. Footer scale pass (owner feedback, 2026-11-14)
+
+The footer still rendered 10-13px text with loose rhythm next to the redesign. Per owner instruction (bigger footer text, tighter vertical spacing), footer fonts/spacing were raised to the round-3 scale; footer colors/design otherwise unchanged.
+
+- Fonts: column links + address **12 → 16px** (line-height 1.8 → 1.45); column headings 13 → **15px/800**; brand paragraph 13 → **16px** (max-width 300px); footer-bottom legal 10 → **12.5px**; logo 142 → 150px.
+- Spacing: link stack ≈45px → ≈30px per row (column `gap` 13 → 4px, link padding 5 → 3px); `.footer-top` padding-bottom 55 → 42px, gap 45 → 40px; `.footer` top padding 70 → 56px; `.footer-bottom` padding 23 → 18px. Footer total height 484 → **378px** at 1440.
+- Note: this is a deliberate, owner-directed override of the round-1 footer tap-target bump (§2 #5) — link tap height ≈29px.
+- Verified: footer at 1440 (tight, homepage-comparable) and 375 (stacked columns clean), 0 overflow elements at 375; `astro check` 0 errors; build + smoke pass.
+
+
+---
+
+## 10. Design-language propagation to all subpages (owner request, 2026-11-14)
+
+The round-3 homepage design system (navy `#0c2b81` / cyan `#4ee4ff` / blue `#2ca8e0`, black ink, big pill buttons, homepage-scale headlines) was propagated to every subpage. All pages are class-driven from `global.css` (no local styles), so this was a subpage-selector sweep; homepage-matched blocks untouched. 51 replacements applied, zero legacy-palette hexes remain.
+
+- **Gradients → navy/blue family:** `.page-hero` (`#0c2b81→#1e56b8` + `#2ca8e2` radial tint), `.cta-banner` (`#0c2b81→#123c94`), `.service-icon-tile` (now `#4ee4ff→#2ca8e0`, matching the homepage care cards, + 2 lighter variants), `.provider-avatar` ×3 + `.profile-monogram` (`#0c2b81 ↔ #2ca8e0/#4ee4ff`), `.insight-art` ×3.
+- **Small accent text → navy; larger glyphs → blue:** `.eyebrow`, `.feature-no`, `.tile-index`, `.check-list::before`, `.steps` numerals, `.section-heading h2 span` (→ blue), `.tile-arrow`, `.faq` accents (kept on-palette though currently unused).
+- **Card/panel backgrounds → the option-card gray `#f6f6f6`** (+ neutral `#e8e8e8` borders): `.info-tile`, `.contact-option`, `.light-panel`, `.sidebar-card`, `.feature-grid article`, `.provider-card`, `.insight-card`; tints: `.chip-list/.pill-row` (`#e6f7fe`/navy, 13px), `.related-links` (`#e9f7fd`/navy), `.soft-note` (blue border).
+- **Reading text → ink `#0b0b0d`:** section-heading, split-content, feature/tile/contact/service/light-panel/sidebar paragraphs, prose/article body, check-list, `.simple-center`; secondary teasers stay muted. `.text-link` 14→15px.
+- **Hero scale aligned to the homepage ramp:** `.page-hero h1` `clamp(39,5vw,65)` → `clamp(30,2.9vw,42)` (max-width 900), padding 98/96→84; mobile overrides adjusted; `.simple-center h1/h2` 50/37→44/40.
+- **Buttons:** `.sidebar-card .button-primary` right-sized for its card (46px/14px — the global 60px/26px stays everywhere else); `MobileNav.tsx` `#122f83→#0c2b81`; `ui/button.tsx` hovers → `#82eff8`/`#2648a2`.
+- Verified: /book, /services, /providers/adam-weitzman screenshots coherent; overflow audit **17 routes × 5 viewports (1440/768/375/360/320) → 0 visible overflow**; `astro check` 0 errors; build (37 pages) + smoke pass.
+- **Mobile testimonials fix (owner flag):** the section heading's desktop `white-space:nowrap` was not released on small screens, and the ≤760px arrows were in-flow (squeezing cards to ~143px). Fixed: heading wraps ≤760px, arrows stay absolutely positioned and shrink to 44px overlay circles, swipe row = one card (82%) + peek; stale duplicate ≤760 testimonial block removed. 320/375/1440 re-verified, 0 overflow.

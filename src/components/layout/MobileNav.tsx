@@ -6,7 +6,7 @@ export default function MobileNav(){
  return <Sheet>
    <SheetTrigger aria-label="Open navigation" className="mobile-menu-trigger"><Menu size={25}/></SheetTrigger>
    <SheetContent>
-     <SheetTitle className="mt-9 text-2xl font-extrabold text-[#122f83]">Explore OCA</SheetTitle>
+     <SheetTitle className="mt-9 text-2xl font-extrabold text-[#0c2b81]">Explore OCA</SheetTitle>
      <nav aria-label="Mobile" className="mt-6 flex flex-col gap-1">
        {nav.map(item=><SheetClose asChild key={item.href}><a className="mobile-nav-link" href={pathTo(item.href)}>{item.text}<ArrowUpRight size={16}/></a></SheetClose>)}
        <SheetClose asChild><a className="mobile-nav-link" href={pathTo('/contact/')}>Contact<ArrowUpRight size={16}/></a></SheetClose>
